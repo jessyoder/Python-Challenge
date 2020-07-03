@@ -17,10 +17,14 @@ with open(csvPath, newline="") as csvFile:
     total_candidates = []
     candidates_list = []
     candidate_dict = {}
+    # candidate_votes
+    votes_average = []
+    winner = ''
+    votes = 0
    
     # Your task is to create a Python script that analyzes the records to calculate each of the following:
-    # print("Election Results")
-    # print("---------------------------------")
+    print("Election Results")
+    print("---------------------------------")
 
     for row in csvReader:
     
@@ -32,15 +36,24 @@ with open(csvPath, newline="") as csvFile:
         if name not in candidates_list:
             candidates_list.append(name)
             candidate_dict[name] = 0
-        candidate_dict[name] = candidate_dict[name] + 1
-
-        # The percentage of votes each candidate won
-
-        # The total number of votes each candidate won
-
-        # The winner of the election based on popular vote.
+        # candidate_dict[name] = candidate_dict[name] + 1
+        candidate_dict[name] += 1
 
     print(f'Total Votes: {total_votes}')
     print("---------------------------------")
-    for candidate in candidates_list:
-        print(candidate + " has " + str(candidate_dict[candidate]) + " total votes")
+    
+     # The total number of votes each candidate won
+    for candidate in candidate_dict:
+
+        # The percentage of votes each candidate won
+        votes_average = ((candidate_dict[candidate]* 100) / total_votes)
+        print(f'{candidate}: {votes_average:,.3f}% ({str(candidate_dict[candidate])})')
+        
+        # The winner of the election based on popular vote.
+        if votes < candidate_dict.get(candidate):
+            winner = candidate
+            votes = candidate_dict.get(candidate)
+        
+    print("---------------------------------")
+    
+    print(f'Winner: {winner}')

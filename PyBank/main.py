@@ -58,4 +58,4 @@ with open(csvPath, newline="") as csvFile:
   output_file.write(f'Total: ${total_amt}\n')
   output_file.write(f'Average Change: ${round(average_change,2)}\n')
   output_file.write(f'Greatest Increase in Profits: {maximum_month} ({max(net_change_list)})\n')
-  output_file.write(f'Greatest Decrease in Profits: {minimum_month} ({min(net_change_list)})\n')
+  output_file.write(f'Greatest Decrease in Profits: {minimum_month} ({min(net_change_list)})\n')  
