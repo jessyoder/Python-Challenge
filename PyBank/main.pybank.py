@@ -23,8 +23,10 @@ with open(csvPath, newline="") as csvFile:
   minimum = prev_net
    
   # Your task is to create a Python script that analyzes the records to calculate each of the following:
-  output_file.write("Financial Analysis\n")
-  output_file.write("---------------------------------\n")
+  print("Financial Analysis")
+  print("---------------------------------")
+  # output_file.write("Financial Analysis\n")
+  # output_file.write("---------------------------------\n")
 
   for row in csvReader:
 
@@ -53,9 +55,14 @@ with open(csvPath, newline="") as csvFile:
     if net_change < minimum:
       minimum_month = row[0]
       minimum = net_change
-        
-  output_file.write(f'Total Months: {month_count} \n')  
-  output_file.write(f'Total: ${total_amt}\n')
-  output_file.write(f'Average Change: ${round(average_change,2)}\n')
-  output_file.write(f'Greatest Increase in Profits: {maximum_month} ({max(net_change_list)})\n')
-  output_file.write(f'Greatest Decrease in Profits: {minimum_month} ({min(net_change_list)})\n')  
+
+  print(f'Total Months: {month_count}')
+  print(f'Total: ${total_amt}')
+  print(f'Average Change: ${round(average_change,2)}')
+  print(f'Greatest Increase in Profits: {maximum_month} ({max(net_change_list)})') 
+  print(f'Greatest Decrease in Profits: {minimum_month} ({min(net_change_list)})')  
+  # output_file.write(f'Total Months: {month_count} \n')  
+  # output_file.write(f'Total: ${total_amt}\n')
+  # output_file.write(f'Average Change: ${round(average_change,2)}\n')
+  # output_file.write(f'Greatest Increase in Profits: {maximum_month} ({max(net_change_list)})\n')
+  # output_file.write(f'Greatest Decrease in Profits: {minimum_month} ({min(net_change_list)})\n')  

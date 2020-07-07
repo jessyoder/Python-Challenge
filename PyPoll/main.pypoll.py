@@ -21,6 +21,8 @@ with open(csvPath, newline="") as csvFile:
     votes = 0
    
     # Your task is to create a Python script that analyzes the records to calculate each of the following:
+    print("Election Results")
+    print("---------------------------------")
     output_file.write("Election Results\n")
     output_file.write("---------------------------------\n")
 
@@ -36,6 +38,8 @@ with open(csvPath, newline="") as csvFile:
             candidate_votes[name] = 0
         candidate_votes[name] += 1
 
+    print(f'Total Votes: {total_votes}')
+    print("---------------------------------")
     output_file.write(f'Total Votes: {total_votes}\n')
     output_file.write("---------------------------------\n")
     
@@ -44,6 +48,7 @@ with open(csvPath, newline="") as csvFile:
 
         # The percentage of votes each candidate won
         votes_average = ((candidate_votes[candidate]* 100) / total_votes)
+        print(f'{candidate}: {votes_average:,.3f}% ({str(candidate_votes[candidate])})')
         output_file.write(f'{candidate}: {votes_average:,.3f}% ({str(candidate_votes[candidate])})\n')
         
         # The winner of the election based on popular vote.
@@ -51,6 +56,7 @@ with open(csvPath, newline="") as csvFile:
             winner = candidate
             votes = candidate_votes.get(candidate)
         
+    print("---------------------------------")
+    print(f'Winner: {winner}')
     output_file.write("---------------------------------\n")
-    
     output_file.write(f'Winner: {winner}\n')
